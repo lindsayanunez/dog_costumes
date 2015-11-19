@@ -8,9 +8,11 @@
     <%= f.input :description %>
     <%= f.association :category %>
     <%= f.association :brand %>
+    <%= f.input :avatar, as: :file %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
 <% end %>

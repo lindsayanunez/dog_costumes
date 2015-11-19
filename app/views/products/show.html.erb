@@ -6,6 +6,12 @@
 </p>
 
 <p>
+<%= image_tag @product.avatar.url %>
+<%= image_tag @product.avatar.url (:medium) %>
+<%= image_tag @product.avatar.url (:thumb) %>
+</p
+
+<p>
   <strong>Current price:</strong>
   <%= @product.current_price %>
 </p>
