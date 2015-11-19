@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Product 1
   current_price: 9.99
   quantity: 1
   description: MyText
-  category_id: 
-  brand_id: 
+  category_id: 1
+  brand_id: 1
 
 two:
-  name: MyString
+  name: Product 2
   current_price: 9.99
   quantity: 1
-  description: MyText
-  category_id: 
-  brand_id: 
+  description: MyText and more
+  category_id: 1
+  brand_id: 1

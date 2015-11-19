@@ -27,6 +27,9 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # Tellling Paperclip gem where to find ImageMagick
+Paperclip.options[:command_path] = "/usr/local/bin/"
+
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
