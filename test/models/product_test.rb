@@ -21,12 +21,16 @@ end
     assert_not product.save, "saved prodict with non-unique name"
 end
 
-  test "product price must be positive and greater than 0" do
-    product = product.new(name: 'my product', description: "my description", category_id: 1, brand_id: 1)
+test "product price must be positive and greater than 0" do
+   product = Product.new(name: 'my product', description: 'my description', category_id: 1, brand_id: 1)
 
-      product.price = 0
-      assert product.invlaid?, 'invalid product'
-      assert_equal ['must be greater than or equal to 0.01'], product errors[:current_price]
+   product.current_price = 0
+   assert product.invalid?, 'invalid product'
+   assert_equal ['must be greater than or equal to 0.01'], product.errors[:current_price]
+
+   product.current_price = 1
+   assert product.valid?, "valid product when should be valid"
+ end
 
 
 end
