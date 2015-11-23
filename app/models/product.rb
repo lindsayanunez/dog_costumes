@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :brand
+  has_many :line_items
+  before_destroy :ensure_not_referenced_by_any_line_items
 
   validates :name, :description, :category_id, :brand_id, presence: true
   validates :name, uniqueness: true
@@ -10,4 +12,17 @@ class Product < ActiveRecord::Base
     :default_url => "/images/:style/missing.png"
       validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+
+  private
+
+  def ensure_not_referenced_by_any_line_items
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base,'Line Items present')
+      return false
+    end
+   end
+
 end
+
